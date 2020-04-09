@@ -1,5 +1,6 @@
 version: 0.2
 
+
 phases:
   pre_build:
     commands:
@@ -21,8 +22,8 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - echo Writing image definitions file...	
-      - printf '[{"name":git_test","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json	
-      - cat imagedefinitions.json 	
-artifacts:	
+      - echo Writing image definitions file...
+      - printf '[{"name":"batch_git","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - cat imagedefinitions.json 
+artifacts:
     files: imagedefinitions.json
